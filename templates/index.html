@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    
+</head>
+<body>
+    <div class="calculator">
+        <h2>Calorie Burn Calculator</h2>
+        <form action="/process" method="POST">
+            <label for="Gender">Gender:</label>
+            <select id="Gender" name="Gender" required>
+              <option value="">Choose one</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <!-- Add more activity options here -->
+            </select>
+
+          <label for="Age">Age:</label>
+          <input type="number" id="Age" name="Age" value="{{session.Age}}" required>
+          
+          <label for="Height">Height (in cm):</label>
+          <input type="number" id="Height" name="Height"  value="{{session.Height}}" required>
+
+          <label for="weight">Weight (in kg):</label>
+          <input type="number" id="weight" name="weight" value="{{session.weight}}" required>          
+          
+          <label for="duration">Duration (in minutes):</label>
+          <input type="number" id="duration" name="duration" value="{{session.duration}}" required>
+
+          <label for="Heart_rate">Heart Rate:</label>
+          <input type="number" id="Heart_rate" name="Heart_rate" value="{{session.Heart_rate}}" required>
+
+          <label for="Body_temp">Body Temperature:</label>
+          <input type="number" id="Body_temp" name="Body_temp" value="{{session.Body_temp}}" required>
+          
+          
+          <button type="submit">Calculate</button>
+          <button onclick="redirectToHome()">Go to Home</button>
+        </form>
+        
+        <div id="result">
+          <h3>Your estimated calorie burn:</h3>
+          {% if result %}
+          <p id="calories">{{result}}</p>
+          {% endif %}
+        </div>
+      </div>
+
+      <script>
+        function redirectToHome() {
+            window.location.href = "/";
+        }
+    </script>
+      
+</body>
+</html>
