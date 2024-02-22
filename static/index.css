@@ -61,4 +61,8 @@
     font-weight: bold;
     color: #4CAF50;
   }
-  
+  body{
+    background-image: url(https://wallpaper.dog/large/10697525.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
