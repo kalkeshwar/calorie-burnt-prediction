@@ -4,20 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calorie Burn Calculator</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
-    
 </head>
 <body>
     <div class="calculator">
         <h2>Calorie Burn Calculator</h2>
-        <form action="https://calories-burnt-prediction.onrender.com/process" method="POST">
+        <form action="/" method="POST">
             <label for="Gender">Gender:</label>
             <select id="Gender" name="Gender" required>
               <option value="">Choose one</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
-              <!-- Add more activity options here -->
             </select>
 
           <label for="Age">Age:</label>
@@ -38,9 +36,8 @@
           <label for="Body_temp">Body Temperature:</label>
           <input type="number" id="Body_temp" name="Body_temp" value="{{session.Body_temp}}" required>
           
-          
           <button type="submit">Calculate</button>
-          <button onclick="redirectToHome()">Go to Home</button>
+          <button type="button" onclick="redirectToHome()">Go to Home</button>
         </form>
         
         <div id="result">
@@ -55,7 +52,6 @@
         function redirectToHome() {
             window.location.replace("/");
         }
-    </script>
-      
+      </script>
 </body>
 </html>
